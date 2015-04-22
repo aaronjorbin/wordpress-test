@@ -90,7 +90,7 @@ _delete_all_posts();
 /* mysql charset craziness */
 if ( getenv( 'WP_DB_CHARSET' ) ) {
 	foreach ( $wpdb->tables( 'global' ) as $table ) {
-		$wpdb->query( "ALTER TABLE $table CONVERT TO CHARACTER SET " . getenv( 'WP_DB_CHARST' ) . " COLLATE " . getenv( 'WP_DB_COLLATION'  ) );
+		$wpdb->query( "ALTER TABLE $table CONVERT TO CHARACTER SET " . getenv( 'WP_DB_CHARSET' ) . " COLLATE " . getenv( 'WP_DB_COLLATION'  ) );
 	}
 }
 
