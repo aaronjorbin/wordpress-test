@@ -1,27 +1,48 @@
 sudo: false
 language: php
-matrix:
-  include:
-  - php: 5.5
-    env: WP_TRAVISCI=travis:js
-  - php: 5.2
-    env: WP_TRAVISCI=travis:phpunit
-  - php: 5.3
-    env: WP_TRAVISCI=travis:phpunit
-  - php: 5.4
-    env: WP_TRAVISCI=travis:phpunit
-  - php: 5.5
-    env: WP_TRAVISCI=travis:phpunit
-  - php: 5.6
-    env: WP_TRAVISCI=travis:phpunit
-  - php: hhvm
-    env: WP_TRAVISCI=travis:phpunit
-  - php: nightly
-    env: WP_TRAVISCI=travis:phpunit
-  allow_failures:
-  - php: hhvm
-  - php: nightly
-  fast_finish: true
+php:
+  - 5.3
+  - 5.6
+env:
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=big5 WP_DB_COLLATION=Big5
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=dec8 WP_DB_COLLATION=DEC
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=cp850 WP_DB_COLLATION=DOS
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=hp8 WP_DB_COLLATION=HP
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=koi8r WP_DB_COLLATION=KOI8-R
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=latin1 WP_DB_COLLATION=cp1252
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=latin2 WP_DB_COLLATION=ISO
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=swe7 WP_DB_COLLATION=7bit
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=ascii WP_DB_COLLATION=US
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=ujis WP_DB_COLLATION=EUC-JP
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=sjis WP_DB_COLLATION=Shift-JIS
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=hebrew WP_DB_COLLATION=ISO
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=tis620 WP_DB_COLLATION=TIS620
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=euckr WP_DB_COLLATION=EUC-KR
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=koi8u WP_DB_COLLATION=KOI8-U
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=gb2312 WP_DB_COLLATION=GB2312
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=greek WP_DB_COLLATION=ISO
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=cp1250 WP_DB_COLLATION=Windows
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=gbk WP_DB_COLLATION=GBK
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=latin5 WP_DB_COLLATION=ISO
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=armscii8 WP_DB_COLLATION=ARMSCII-8
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=utf8 WP_DB_COLLATION=UTF-8
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=ucs2 WP_DB_COLLATION=UCS-2
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=cp866 WP_DB_COLLATION=DOS
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=keybcs2 WP_DB_COLLATION=DOS
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=macce WP_DB_COLLATION=Mac
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=macroman WP_DB_COLLATION=Mac
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=cp852 WP_DB_COLLATION=DOS
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=latin7 WP_DB_COLLATION=ISO
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=utf8mb4 WP_DB_COLLATION=UTF-8
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=cp1251 WP_DB_COLLATION=Windows
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=utf16 WP_DB_COLLATION=UTF-16
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=cp1256 WP_DB_COLLATION=Windows
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=cp1257 WP_DB_COLLATION=Windows
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=utf32 WP_DB_COLLATION=UTF-32
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=binary WP_DB_COLLATION=Binary
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=geostd8 WP_DB_COLLATION=GEOSTD8
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=cp932 WP_DB_COLLATION=SJIS
+  - WP_TRAVISCI=travis:phpunit WP_DB_CHARSET=eucjpms WP_DB_COLLATION=UJIS
 before_install:
 - WP_CORE_DIR=/tmp/wordpress/
 - |

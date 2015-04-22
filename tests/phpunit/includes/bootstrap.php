@@ -87,6 +87,15 @@ require_once ABSPATH . '/wp-settings.php';
 // Delete any default posts & related data
 _delete_all_posts();
 
+/* mysql charset craziness */
+if ( getenv( 'WP_DB_CHARSET' ) ) {
+	foreach ( $wpdb->tables( 'global' ) as $table ) {
+		$wpdb->query( "ALTER TABLE $table CONVERT TO CHARACTER SET " . getenv( 'WP_DB_CHARST' ) . " COLLATE " . getenv( 'WP_DB_COLLATION'  ) );
+	}
+}
+
+
+
 require dirname( __FILE__ ) . '/testcase.php';
 require dirname( __FILE__ ) . '/testcase-xmlrpc.php';
 require dirname( __FILE__ ) . '/testcase-ajax.php';
